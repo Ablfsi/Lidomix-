@@ -1,90 +1,57 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lidomix - پخش ریمیکس</title>
+  <title>🎧 Lidomix - Sound of the Police</title>
   <style>
     body {
-      background-color: #f1e7db;
-      font-family: 'Vazirmatn', sans-serif;
+      font-family: sans-serif;
       text-align: center;
-      padding: 40px 20px;
-      color: #222;
+      padding: 50px 20px;
+      background-color: #f1f1f1;
     }
-
-    img.logo {
-      max-width: 250px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #cc4433;
-    }
-
-    input[type="password"] {
+    input, button {
       padding: 10px;
       font-size: 16px;
-      width: 200px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
       margin-top: 10px;
-      border: none;
-      background-color: #cc4433;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
-
     #player {
-      margin-top: 30px;
       display: none;
+      margin-top: 30px;
     }
-
-    audio {
+    iframe {
       width: 100%;
-      max-width: 400px;
-      border-radius: 10px;
+      max-width: 500px;
+      height: 80px;
+      border: none;
+      pointer-events: none; /* غیرفعال کردن کلیک روی آیکون‌ها */
+      filter: invert(0); /* می‌تونی ظاهر رو تغییر بدی اگه خواستی */
     }
   </style>
 </head>
 <body>
-
-  <img src="logo.webp" alt="Lidomix" class="logo">
-
-  <h1>🎧 پخش ریمیکس فقط برای خریدار</h1>
-
+  <h2>🎧 پخش ریمیکس فقط برای خریدار</h2>
   <p>رمز را وارد کنید:</p>
-  <input type="password" id="pass">
-  <br>
-  <button onclick="checkPassword()">پخش</button>
+  <input type="password" id="pass" placeholder="رمز...">
+  <button onclick="checkPass()">پخش</button>
 
   <div id="player">
-    <p>در حال پخش: <strong>Remix Code 38</strong></p>
-    <audio controls controlsList="nodownload">
-      <source src="https://drive.google.com/file/d/1E9OiOhooUOVQ221GZlOHbmvZjRGQ69OK/Preview"
-      مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
-    </audio>
+    <h3>🔊 در حال پخش: Sound of the Police (Lidomix)</h3>
+    <iframe src="" id="audioFrame" allow="autoplay"></iframe>
   </div>
 
   <script>
-    function checkPassword() {
-      const correct = "Sound38";
-      const userPass = document.getElementById("pass").value;
-      if (userPass === correct) {
+    function checkPass() {
+      const password = document.getElementById("pass").value;
+      if (password === "Sound38") {
         document.getElementById("player").style.display = "block";
+        document.getElementById("audioFrame").src = "https://drive.google.com/file/d/1E9OiOhooUOVQ221GZlOHbmvZjRGQ69OK/preview";
       } else {
         alert("رمز اشتباه است.");
       }
     }
   </script>
-
 </body>
 </html>
