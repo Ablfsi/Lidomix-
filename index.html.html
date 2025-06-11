@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>پخش آنلاین ریمیکس</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 40px;
+    }
+    h2 {
+      color: #333;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    #player {
+      display: none;
+      margin-top: 30px;
+    }
+    audio {
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>برای شنیدن ریمیکس، رمز را وارد کنید</h2>
+
+<input type="password" id="pass" placeholder="رمز عبور را وارد کنید" />
+<br>
+<button onclick="checkPass()">پخش</button>
+
+<div id="player">
+  <audio controls controlsList="nodownload">
+    <source src="q5LCf6AzOrLdAJx9LZ9TQBUVKjtcoweDTlS0X7Y2rZfpaWnH" type="audio/mpeg">
+    مرورگر شما از پخش این فرمت پشتیبانی نمی‌کند.
+  </audio>
+</div>
+
+<script>
+  const correctPassword = "Sound38"; // این رمز را تغییر بده
+
+  function checkPass() {
+    const input = document.getElementById("pass").value;
+    if (input === correctPassword) {
+      document.getElementById("player").style.display = "block";
+    } else {
+      alert("رمز اشتباه است!");
+    }
+  }
+</script>
+
+</body>
+</html>
