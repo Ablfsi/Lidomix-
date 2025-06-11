@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <title>پخش آنلاین ریمیکس</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>پخش ریمیکس</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: sans-serif;
-      background-color: #f5f5f5;
       text-align: center;
       padding: 40px;
+      background-color: #f0f0f0;
     }
     h2 {
       color: #333;
@@ -17,14 +17,7 @@
     input, button {
       padding: 10px;
       font-size: 16px;
-      margin: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
+      margin-top: 10px;
     }
     #player {
       display: none;
@@ -38,31 +31,32 @@
 </head>
 <body>
 
-<h2>برای شنیدن ریمیکس، رمز را وارد کنید</h2>
+  <h2>برای پخش ریمیکس، رمز را وارد کن</h2>
+  <input type="password" id="pass" placeholder="رمز عبور">
+  <br>
+  <button onclick="checkPass()">پخش</button>
 
-<input type="password" id="pass" placeholder="رمز عبور را وارد کنید" />
-<br>
-<button onclick="checkPass()">پخش</button>
+  <div id="player">
+    <audio controls controlsList="nodownload">
+      <source id="audioSource" src="" type="audio/mpeg">
+      مرورگر شما از پخش این فایل پشتیبانی نمی‌کند.
+    </audio>
+  </div>
 
-<div id="player">
-  <audio controls controlsList="nodownload">
-    <source src="https://drive.google.com/file/d/1Cz0h7X1m1YcpBlJcqoVLKMJo6K82BJlX/view?usp=drivesdk" type="audio/mpeg">
-    مرورگر شما از پخش این فرمت پشتیبانی نمی‌کند.
-  </audio>
-</div>
+  <script>
+    const correctPassword = "12345"; // رمز قابل تغییر
+    const mp3Link = "https://github.com/Ablfsi/My_Remixes/raw/refs/heads/main/Sound%20of%20The%20Police%20(%20Lidomix%20)%20(1).mp3";
 
-<script>
-  const correctPassword = "Sound38"; // این رمز را تغییر بده
-
-  function checkPass() {
-    const input = document.getElementById("pass").value;
-    if (input === correctPassword) {
-      document.getElementById("player").style.display = "block";
-    } else {
-      alert("رمز اشتباه است!");
+    function checkPass() {
+      const input = document.getElementById("pass").value;
+      if (input === correctPassword) {
+        document.getElementById("audioSource").src = mp3Link;
+        document.getElementById("player").style.display = "block";
+      } else {
+        alert("رمز اشتباه است.");
+      }
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
