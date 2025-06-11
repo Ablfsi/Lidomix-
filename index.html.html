@@ -2,61 +2,59 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>پخش ریمیکس</title>
+  <title>پخش آنلاین ریمیکس</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: sans-serif;
+      background: #f9f9f9;
       text-align: center;
       padding: 40px;
-      background-color: #f0f0f0;
-    }
-    h2 {
-      color: #333;
     }
     input, button {
       padding: 10px;
+      margin: 10px;
       font-size: 16px;
-      margin-top: 10px;
     }
     #player {
       display: none;
       margin-top: 30px;
     }
     audio {
-      width: 100%;
+      width: 90%;
       max-width: 400px;
     }
   </style>
 </head>
 <body>
 
-  <h2>برای پخش ریمیکس، رمز را وارد کن</h2>
-  <input type="password" id="pass" placeholder="رمز عبور">
-  <br>
-  <button onclick="checkPass()">پخش</button>
+<h2>برای پخش ریمیکس، رمز را وارد کنید</h2>
 
-  <div id="player">
-    <audio controls controlsList="nodownload">
-      <source id="audioSource" src="" type="audio/mpeg">
-      مرورگر شما از پخش این فایل پشتیبانی نمی‌کند.
-    </audio>
-  </div>
+<input type="password" id="pass" placeholder="رمز عبور">
+<br>
+<button onclick="checkPass()">پخش</button>
 
-  <script>
-    const correctPassword = "12345"; // رمز قابل تغییر
-    const mp3Link = "https://github.com/Ablfsi/My_Remixes/raw/refs/heads/main/Sound%20of%20The%20Police%20(%20Lidomix%20)%20(1).mp3";
+<div id="player">
+  <audio controls controlsList="nodownload">
+    <source id="audioSource" src="" type="audio/mpeg">
+    مرورگر شما از پخش فایل پشتیبانی نمی‌کند.
+  </audio>
+</div>
 
-    function checkPass() {
-      const input = document.getElementById("pass").value;
-      if (input === correctPassword) {
-        document.getElementById("audioSource").src = mp3Link;
-        document.getElementById("player").style.display = "block";
-      } else {
-        alert("رمز اشتباه است.");
-      }
+<script>
+  const correctPassword = "12345"; // رمز قابل تغییر
+  const mp3Link = "https://https://soundcloud.com/lidomix/remix-raghib-lidomix-mp3?ref=clipboard&p=a&c=1&si=0d8fd44afa9d4ce591e83eb5c997b76f&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"; // ← لینک مستقیم واقعی رو اینجا بذار
+
+  function checkPass() {
+    const input = document.getElementById("pass").value;
+    if (input === correctPassword) {
+      document.getElementById("audioSource").src = mp3Link;
+      document.getElementById("player").style.display = "block";
+    } else {
+      alert("رمز اشتباه است.");
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
